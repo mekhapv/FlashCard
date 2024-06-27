@@ -26,7 +26,7 @@ export default function MyFlashCards() {
           className="text-red-700  text-white font-bold  px-4 rounded "
           style={{ float: "inline-end", paddingTop: "30px" }}
         >
-          {showAll ? "Show Less" : "See All"}
+          {showAll ? "Show Less" : "See All "}
         </button>
       </div>
     </>
