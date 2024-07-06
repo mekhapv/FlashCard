@@ -1,0 +1,17 @@
+.deleteBtn{
+    right: 10px;
+    position: absolute;
+    top: 10px;
+}
+.viewCardsBtn{
+    left: 10px;
+    position: absolute;
+    bottom: 15px;
+}
+.desctext {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
+ }

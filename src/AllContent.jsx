@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Header from "./Header/Header";
 import Home from "./Home/Home";
-import MainBox from "./MainBox/MainBox";
 import { useDispatch } from "react-redux";
 import { setGroupArr } from "./InfoSlice";
 

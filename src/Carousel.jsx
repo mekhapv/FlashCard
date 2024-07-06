@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./MyFlashCardPage/MyFlashCard.css";
+import logo from "./noimage.jpg"
 
 const Carousel = ({ termArr }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,17 +25,19 @@ const Carousel = ({ termArr }) => {
         className="carousel flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        {termArr.map((xy, index) => (
+        {termArr?.map((data, index) => (
           <div className="carousel-item flex-none w-full  flex items-center justify-center ">
             <div>
-              <img src={xy.image} className="px-5 py-10 object-left-top"
-                style={{ height: "225px", width: "200px" }}
+              <img
+                src={data.image ? data.image : logo}
+                className="px-5 py-10 object-left-top" alt="image"
+                style={{ width: "auto", height: "225px" }}
               />
             </div>
             <div className="basis-1/2">
               <p className="pl-5 desctextcard" >
 
-                {xy.desc}
+                {data.desc}
               </p>
             </div>
           </div>

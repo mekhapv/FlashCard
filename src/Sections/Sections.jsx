@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AddMore } from "../AddMore/AddMore";
 import { MdOutlineUploadFile } from "react-icons/md";
+import { isEmpty } from "lodash";
 
 
 export default function TermSection({
@@ -21,7 +22,14 @@ export default function TermSection({
     setAddMore(updatedArr);
   };
 
+
   const [addMore, setAddMore] = useState([0]);
+
+  useEffect(() => {
+    if (isEmpty(values)) {
+      setAddMore([0])
+    }
+  }, [values])
 
   const handleAddMoreClick = () => {
     const add = [...addMore];
@@ -29,7 +37,7 @@ export default function TermSection({
     setAddMore(add);
   };
   return (
-    <div class="w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div className="w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div>
         {addMore.map((x, i) => (
           <AddMore
@@ -47,7 +55,7 @@ export default function TermSection({
       </div>
       <button
         type="button"
-        class="bg-transparent text-blue-700 font-semibold py-5 rounded"
+        className="bg-transparent text-blue-700 font-semibold py-5 rounded"
         onClick={() => handleAddMoreClick()}
       >
         +Add More
@@ -82,21 +90,22 @@ export function GroupSection({
     fileInputRef.current.click(); //just click the input element
   };
   return (
-    <div class="w-full ">
-      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <div class="flex">
+    <div className="w-full ">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="flex">
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-bold mb-2"
             for="username"
           >
             Create Group*
           </label>
           <input
-            class={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.groupName && 'border-red-500'} `}
+            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.groupName && 'border-red-500'} `}
             style={{ width: "30%", marginTop: "25px", marginLeft: "-91px" }}
             id="groupName"
             type="text"
             name="groupName"
+            value={values.groupName || ''}
             onChange={handleChange}
           ></input>
           <input
@@ -111,11 +120,12 @@ export function GroupSection({
             <img
               style={{ width: "auto", maxHeight: "65px", marginLeft: "30px" }}
               src={values[`groupImage`]}
+              alt=''
             />
           )}
           {!values[`groupImage`] && (
             <button
-              class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded "
+              className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded "
               style={{ marginLeft: "50px", marginTop: "auto" }}
               onClick={handleButtonClick}
             >
@@ -129,25 +139,26 @@ export function GroupSection({
           )}
         </div>
         {errors.groupName && (
-          <p class="text-red-500 text-xs italic mb-4">{errors.groupName}</p>
+          <p className="text-red-500 text-xs italic mb-4">{errors.groupName}</p>
         )}
-        <div class="mb-6">
+        <div className="mb-6">
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-bold mb-2 mt-2"
             for="password"
           >
             Add Description
           </label>
 
           <textarea
-            class={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ${errors.groupDesc && 'border-red-500'} `} style={{ height: 100, width: "80%" }}
+            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ${errors.groupDesc && 'border-red-500'} `} style={{ height: 100, width: "80%" }}
             id="groupDesc"
             type="text"
             name="groupDesc"
             onChange={handleChange}
+            value={values.groupDesc || ''}
           />
           {errors.groupDesc && (
-            <p class="text-red-500 text-xs italic mb-4">{errors.groupDesc}</p>
+            <p className="text-red-500 text-xs italic mb-4">{errors.groupDesc}</p>
           )}
         </div>
       </div>

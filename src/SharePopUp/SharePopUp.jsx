@@ -208,7 +208,6 @@ export default function SharePopUp() {
         onClick={() => setOpen(true)}
         style={{
           backgroundColor: 'white',
-          width: '270px',
           height: '40px',
           display: 'flex',
         }}
@@ -268,27 +267,27 @@ export default function SharePopUp() {
                   <div className="flex justify-around">
                     <button style={{ width: '30px' }}>
                       <span className="pl-10">
-                        <img src={facebook} alt="Facebook" />
+                        <img src={facebook} />
                       </span>
                     </button>
                     <button style={{ width: '30px' }}>
                       <span className="pl-10">
-                        <img src={linkedIn} alt="LinkedIn" />
+                        <img src={linkedIn} />
                       </span>
                     </button>
                     <button style={{ width: '30px' }}>
                       <span className="pl-10">
-                        <img src={whatsappImage} alt="WhatsApp" />
+                        <img src={whatsappImage} />
                       </span>
                     </button>
                     <button style={{ width: '30px' }}>
                       <span className="pl-10">
-                        <img src={twitter} alt="Twitter" />
+                        <img src={twitter} />
                       </span>
                     </button>
                     <button style={{ width: '30px' }}>
                       <span className="pl-10">
-                        <img src={mail} alt="Mail" />
+                        <img src={mail} />
                       </span>
                     </button>
                   </div>

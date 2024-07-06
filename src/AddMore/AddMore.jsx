@@ -35,23 +35,23 @@ export function AddMore({
     onEdit(index); //passing onedit fn with index
   };
   return (
-    <div class="mb-4">
+    <div className="mb-4">
       <div className="flex">
         <div>
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-bold mb-2"
             for="username"
           >
             Enter Term*
           </label>
 
           <input
-            class={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors[`termName${arr[index]}`] && 'border-red-500'} `}
+            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors[`termName${arr[index]}`] && 'border-red-500'} `}
             id={`termName${index}`}
             type="text"
             name={`termName${index}`}
             onChange={handleChange}
-            value={values[`termName${arr[index]}`]} //values - obj //{termName0:"gjbhdb"}
+            value={values[`termName${arr[index]}`] || ""} //values - obj //{termName0:"gjbhdb"}
           />
 
           {errors?.[`termName${arr[index]}`] && (
@@ -61,19 +61,19 @@ export function AddMore({
 
         <div style={{ marginLeft: "50px" }}>
           <label
-            class="block text-gray-700 text-sm font-bold mb-2 "
+            className="block text-gray-700 text-sm font-bold mb-2 "
             for="username"
           >
             Enter Description*
           </label>
 
           <textarea
-            class={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors[`termName${arr[index]}`] && 'border-red-500'} `}
-            style={{ width: "500px", height: "65px" }}
+            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors[`termName${arr[index]}`] && 'border-red-500'} `}
+            style={{ width: "500px", height: "auto" }}
             id="termDesc"
             name={`termDesc${index}`}
             type="text"
-            value={values[`termDesc${arr[index]}`]}
+            value={values[`termDesc${arr[index]}`] || ""}
             onChange={handleChange}
           />
 
@@ -95,11 +95,12 @@ export function AddMore({
             <img
               style={{ width: "auto", maxHeight: "65px" }}
               src={values[`termImage${arr[index]}`]}
+              alt=""
             />
           )}
           {!values[`termImage${arr[index]}`] && (
             <button
-              class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+              className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
               style={{ marginTop: "5px" }}
               onClick={handleButtonClick}
             >
