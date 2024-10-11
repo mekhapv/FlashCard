@@ -3,7 +3,6 @@ import { AddMore } from "../AddMore/AddMore";
 import { MdOutlineUploadFile } from "react-icons/md";
 import { isEmpty } from "lodash";
 
-
 export default function TermSection({
   values,
   handleChange,
@@ -11,7 +10,7 @@ export default function TermSection({
   setFieldValue,
   setValues,
   onEdit,
-  errors
+  errors,
 }) {
   const handleDelete = (indexToDelete) => {
     const updatedArr = [...addMore];
@@ -22,14 +21,13 @@ export default function TermSection({
     setAddMore(updatedArr);
   };
 
-
   const [addMore, setAddMore] = useState([0]);
 
   useEffect(() => {
     if (isEmpty(values)) {
-      setAddMore([0])
+      setAddMore([0]);
     }
-  }, [values])
+  }, [values]);
 
   const handleAddMoreClick = () => {
     const add = [...addMore];
@@ -69,7 +67,7 @@ export function GroupSection({
   handleChange,
   handleBlur,
   setFieldValue,
-  errors
+  errors,
 }) {
   const fileInputRef = useRef(null);
   const handleFileUpload = (e) => {
@@ -100,12 +98,14 @@ export function GroupSection({
             Create Group*
           </label>
           <input
-            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.groupName && 'border-red-500'} `}
+            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+              errors.groupName && "border-red-500"
+            } `}
             style={{ width: "30%", marginTop: "25px", marginLeft: "-91px" }}
             id="groupName"
             type="text"
             name="groupName"
-            value={values.groupName || ''}
+            value={values.groupName || ""}
             onChange={handleChange}
           ></input>
           <input
@@ -120,7 +120,7 @@ export function GroupSection({
             <img
               style={{ width: "auto", maxHeight: "65px", marginLeft: "30px" }}
               src={values[`groupImage`]}
-              alt=''
+              alt=""
             />
           )}
           {!values[`groupImage`] && (
@@ -129,7 +129,7 @@ export function GroupSection({
               style={{ marginLeft: "50px", marginTop: "auto" }}
               onClick={handleButtonClick}
             >
-              <div style={{ display: "ruby-text" }}>
+              <div style={{ display: "flex", alignItems: "center" }}>
                 <div>
                   <MdOutlineUploadFile />
                 </div>
@@ -150,15 +150,20 @@ export function GroupSection({
           </label>
 
           <textarea
-            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ${errors.groupDesc && 'border-red-500'} `} style={{ height: 100, width: "80%" }}
+            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline ${
+              errors.groupDesc && "border-red-500"
+            } `}
+            style={{ height: 100, width: "80%" }}
             id="groupDesc"
             type="text"
             name="groupDesc"
             onChange={handleChange}
-            value={values.groupDesc || ''}
+            value={values.groupDesc || ""}
           />
           {errors.groupDesc && (
-            <p className="text-red-500 text-xs italic mb-4">{errors.groupDesc}</p>
+            <p className="text-red-500 text-xs italic mb-4">
+              {errors.groupDesc}
+            </p>
           )}
         </div>
       </div>
