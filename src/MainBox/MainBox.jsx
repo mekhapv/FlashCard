@@ -26,20 +26,23 @@ export default function MainBox() {
       <h1 style={{ fontWeight: "700" }}>Create Flashcard</h1>
       <div>
         <Tabs>
-
-
           <Tab label="Create New">
             <Formik
               initialValues={{}}
               validate={(values) => {
-                console.log(values)
+                console.log(values);
                 const errors = {};
-                const fields = ["groupDesc", "groupName", "termName0", "termDesc0"]
+                const fields = [
+                  "groupDesc",
+                  "groupName",
+                  "termName0",
+                  "termDesc0",
+                ];
                 fields.forEach((x) => {
                   if (!values[x]) {
                     errors[x] = "This field is Required";
                   }
-                })
+                });
 
                 return errors;
               }}
@@ -67,15 +70,14 @@ export default function MainBox() {
                     term: termArr,
                   })
                 );
-                console.log('Form reset initiated');
+                console.log("Form reset initiated");
                 resetForm();
 
-                console.log('form is resetted', values)
+                console.log("form is resetted", values);
                 setShowPopup(true);
                 setTimeout(() => {
                   setShowPopup(false);
                 }, 2000);
-
               }}
             >
               {({
@@ -89,43 +91,43 @@ export default function MainBox() {
                 isSubmitting,
                 handleDelete,
               }) => (
-                  <Form onSubmit={handleSubmit}>
-                    <GroupSection
-                      values={values}
-                      handleChange={handleChange}
-                      handleBlur={handleBlur}
-                      setFieldValue={setFieldValue}
-                      errors={errors}
-                    />
-                    <TermSection
-                      values={values}
-                      handleChange={handleChange}
-                      handleBlur={handleBlur}
-                      setFieldValue={setFieldValue}
-                      onEdit={handleEdit}
-                      errors={errors}
-                    />
-                    <SubmitButton />
-                  </Form>
-                )}
+                <Form onSubmit={handleSubmit}>
+                  <GroupSection
+                    values={values}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    setFieldValue={setFieldValue}
+                    errors={errors}
+                  />
+                  <TermSection
+                    values={values}
+                    handleChange={handleChange}
+                    handleBlur={handleBlur}
+                    setFieldValue={setFieldValue}
+                    onEdit={handleEdit}
+                    errors={errors}
+                  />
+                  <SubmitButton />
+                </Form>
+              )}
             </Formik>
 
             {showPopup && (
               <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 transition-opacity duration-300 ease-in-out">
                 <div className="bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-300 ease-in-out scale-95">
-                  <p className="text-lg font-bold text-gray-800">Form created!</p>
+                  <p className="text-lg font-bold text-gray-800">
+                    Form created!
+                  </p>
                 </div>
               </div>
             )}
-
           </Tab>
 
           <Tab label="My Flashcard">
             {isEmpty(showDetailsPage) ? <MyFlashCards /> : <DetailPage />}
           </Tab>
-
         </Tabs>
       </div>
-    </div >
+    </div>
   );
 }

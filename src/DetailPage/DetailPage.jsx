@@ -8,8 +8,9 @@ import SharePopUp from "../SharePopUp/SharePopUp";
 import { hideDetailsPage } from "../InfoSlice";
 
 const DetailPage = () => {
-
-  const { showDetailsPage, cardsToShow } = useSelector((state) => state.infoReducer);
+  const { showDetailsPage, cardsToShow } = useSelector(
+    (state) => state.infoReducer
+  );
   const dispatch = useDispatch();
 
   const handleBackClick = () => {
@@ -23,9 +24,8 @@ const DetailPage = () => {
 
         <div>
           <span className="flex">
-
             <button
-              className='bottom-1.5 position: relative'
+              className="bottom-1.5 position: relative"
               onClick={handleBackClick}
             >
               <VscArrowLeft />
@@ -57,8 +57,15 @@ const DetailPage = () => {
             </div>
 
             {/* carousel */}
-            <div className=" bg-gray-50 rounded-lg shadow-inner basis-1/2 "
-              style={{ height: "250px", paddingTop: "20px", paddingLeft: "10px", paddingRight: "10px", paddingBottom: "10px" }}
+            <div
+              className=" bg-gray-50 rounded-lg shadow-inner basis-1/2 "
+              style={{
+                height: "250px",
+                paddingTop: "20px",
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                paddingBottom: "10px",
+              }}
             >
               <Carousel termArr={showDetailsPage.term} />
             </div>
@@ -94,17 +101,11 @@ const DetailPage = () => {
                 <span style={{ marginLeft: "10px" }}> Print</span>
               </button>
             </div>
-
           </div>
         </div>
       </div>
-
     </>
   );
 };
 
 export default DetailPage;
-
-
-
-

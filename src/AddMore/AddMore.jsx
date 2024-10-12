@@ -10,7 +10,7 @@ export function AddMore({
   onDelete,
   onEdit,
   arr,
-  errors
+  errors,
 }) {
   const fileInputRef = useRef(null);
   const handleFileUpload = (e) => {
@@ -46,7 +46,9 @@ export function AddMore({
           </label>
 
           <input
-            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors[`termName${arr[index]}`] && 'border-red-500'} `}
+            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+              errors[`termName${arr[index]}`] && "border-red-500"
+            } `}
             id={`termName${index}`}
             type="text"
             name={`termName${index}`}
@@ -55,7 +57,9 @@ export function AddMore({
           />
 
           {errors?.[`termName${arr[index]}`] && (
-            <p className="text-red-500 text-xs italic mb-4">{errors?.[`termName${arr[index]}`]}</p>
+            <p className="text-red-500 text-xs italic mb-4">
+              {errors?.[`termName${arr[index]}`]}
+            </p>
           )}
         </div>
 
@@ -68,7 +72,9 @@ export function AddMore({
           </label>
 
           <textarea
-            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors[`termName${arr[index]}`] && 'border-red-500'} `}
+            className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
+              errors[`termName${arr[index]}`] && "border-red-500"
+            } `}
             style={{ width: "500px", height: "auto" }}
             id="termDesc"
             name={`termDesc${index}`}
@@ -78,9 +84,10 @@ export function AddMore({
           />
 
           {errors?.[`termDesc${arr[index]}`] && (
-            <p className="text-red-500 text-xs italic mb-4">{errors?.[`termDesc${arr[index]}`]}</p>
+            <p className="text-red-500 text-xs italic mb-4">
+              {errors?.[`termDesc${arr[index]}`]}
+            </p>
           )}
-
         </div>
         <div style={{ marginLeft: "50px", marginTop: "25px" }}>
           <input
@@ -119,12 +126,12 @@ export function AddMore({
           }}
         >
           <div>
-            <button onClick={() => onDelete(index)}>
+            <button type="button" onClick={() => onDelete(index)}>
               <TfiTrash />
             </button>
           </div>
           <div>
-            <button onClick={() => handleEditClick(index)}>
+            <button type="button" onClick={() => handleEditClick(index)}>
               <TbEdit />
             </button>
           </div>
@@ -133,5 +140,3 @@ export function AddMore({
     </div>
   );
 }
-
-
