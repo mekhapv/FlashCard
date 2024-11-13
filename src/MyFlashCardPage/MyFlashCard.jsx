@@ -20,15 +20,14 @@ export default function MyFlashCards() {
         {group && group.length > 0 ? (
           cardsToShow.map((x, i) => <Cards index={i} group={x} />)
         ) : (
-            <p>No cards available</p>
-          )}
+          <p>No cards available</p>
+        )}
       </div>
       {group && group.length > 6 && (
         <div>
           <button
             onClick={handleSeeAll}
             className="show text-red-700 font-bold px-4 rounded "
-
           >
             {showAll ? "Show Less" : "Show All"}
           </button>
@@ -37,4 +36,3 @@ export default function MyFlashCards() {
     </>
   );
 }
-

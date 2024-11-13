@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from "react";
-import { AddMore } from "../AddMore/AddMore";
-import { MdOutlineUploadFile } from "react-icons/md";
 import { isEmpty } from "lodash";
+import { useEffect, useRef, useState } from "react";
+import { MdOutlineUploadFile } from "react-icons/md";
+import { AddMore } from "../AddMore/AddMore";
 
 export default function TermSection({
   values,
@@ -12,6 +12,14 @@ export default function TermSection({
   onEdit,
   errors,
 }) {
+  const [addMore, setAddMore] = useState([0]);
+
+  useEffect(() => {
+    if (isEmpty(values)) {
+      setAddMore([0]);
+    }
+  }, [values]);
+
   const handleDelete = (indexToDelete) => {
     const updatedArr = [...addMore];
     updatedArr.splice(indexToDelete, 1);
@@ -20,14 +28,6 @@ export default function TermSection({
     delete values[`termImage${indexToDelete}`];
     setAddMore(updatedArr);
   };
-
-  const [addMore, setAddMore] = useState([0]);
-
-  useEffect(() => {
-    if (isEmpty(values)) {
-      setAddMore([0]);
-    }
-  }, [values]);
 
   const handleAddMoreClick = () => {
     const add = [...addMore];

@@ -88,7 +88,6 @@ export default function MainBox() {
                 setFieldValue,
                 handleBlur,
                 handleSubmit,
-               
               }) => (
                 <Form onSubmit={handleSubmit}>
                   <GroupSection

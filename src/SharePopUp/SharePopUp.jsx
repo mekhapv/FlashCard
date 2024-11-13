@@ -1,39 +1,44 @@
-
-import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
-import { useEffect, useState } from 'react';
-import { GrShareOption } from 'react-icons/gr';
-import { HiOutlineArrowUturnRight } from 'react-icons/hi2';
-import { LuCopyCheck } from 'react-icons/lu';
-import facebook from './../assets/facebook.png';
-import linkedIn from './../assets/linkedIn.png';
-import mail from './../assets/mail.png';
-import twitter from './../assets/twitter.png';
-import whatsappImage from './../assets/whatsappImage.png';
+import {
+  Dialog,
+  DialogPanel,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
+import { useEffect, useState } from "react";
+import { GrShareOption } from "react-icons/gr";
+import { HiOutlineArrowUturnRight } from "react-icons/hi2";
+import { LuCopyCheck } from "react-icons/lu";
+import facebook from "./../assets/facebook.png";
+import linkedIn from "./../assets/linkedIn.png";
+import mail from "./../assets/mail.png";
+import twitter from "./../assets/twitter.png";
+import whatsappImage from "./../assets/whatsappImage.png";
 import "./index.css";
 
 export default function SharePopUp() {
   const [open, setOpen] = useState(false);
-  const [currentUrl, setCurrentUrl] = useState('');
+  const [currentUrl, setCurrentUrl] = useState("");
 
   useEffect(() => {
     if (open) {
-      setCurrentUrl('');
+      setCurrentUrl("");
       const timer = setTimeout(() => {
         setCurrentUrl(window.location.href);
-      }, 100); // first it clears and then it will update 
-      return () => clearTimeout(timer); // if the component unmounts or if the effect runs again we should Clear the timeout 
+      }, 100); // first it clears and then it will update
+      return () => clearTimeout(timer); // if the component unmounts or if the effect runs again we should Clear the timeout
     } else {
-      setCurrentUrl('');
+      setCurrentUrl("");
     }
   }, [open]);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(currentUrl)
+    navigator.clipboard
+      .writeText(currentUrl)
       .then(() => {
-        alert('Link copied to clipboard');
+        alert("Link copied to clipboard");
       })
       .catch((err) => {
-        console.error('Failed to copy: ', err);
+        console.error("Failed to copy: ", err);
       });
   };
 
@@ -43,13 +48,13 @@ export default function SharePopUp() {
         className="text-black py-2 px-4 rounded shadow"
         onClick={() => setOpen(true)}
         style={{
-          backgroundColor: 'white',
-          height: '40px',
-          display: 'flex',
+          backgroundColor: "white",
+          height: "40px",
+          display: "flex",
         }}
       >
         <HiOutlineArrowUturnRight />
-        <span style={{ marginLeft: '10px' }}> Share</span>
+        <span style={{ marginLeft: "10px" }}> Share</span>
       </button>
 
       <Transition show={open}>
@@ -80,8 +85,11 @@ export default function SharePopUp() {
                     <div className="sm:flex sm:items-start">
                       <div>
                         <p className="font-bold">Share</p>
-                        <div className="flex items-stretch" style={{ paddingTop: '15px' }}>
-                          <p className="linkbox pl-4 border-dashed border-2 border-gray-500 rounded-md" >
+                        <div
+                          className="flex items-stretch"
+                          style={{ paddingTop: "15px" }}
+                        >
+                          <p className="linkbox pl-4 border-dashed border-2 border-gray-500 rounded-md">
                             Link: {currentUrl}
                           </p>
                           <div className="flex items-stretch">
@@ -116,7 +124,7 @@ export default function SharePopUp() {
                         <img src={whatsappImage} />
                       </span>
                     </button>
-                    <button  className="buttons">
+                    <button className="buttons">
                       <span className="pl-10">
                         <img src={twitter} />
                       </span>

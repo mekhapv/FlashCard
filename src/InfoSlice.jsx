@@ -4,7 +4,7 @@ export const infoSlice = createSlice({
   name: "infoReducer",
   initialState: {
     group: [],
-    showDetailsPage: {}
+    showDetailsPage: {},
   },
   reducers: {
     setGroup: (state, action) => {
@@ -25,9 +25,15 @@ export const infoSlice = createSlice({
     },
     setShowDetailsPage: (state, action) => {
       state.showDetailsPage = action.payload;
-    }
+    },
   },
 });
 
-export const { setGroup, setGroupArr, setShowDetailsPage, hideDetailsPage, deleteCard } = infoSlice.actions;
+export const {
+  setGroup,
+  setGroupArr,
+  setShowDetailsPage,
+  hideDetailsPage,
+  deleteCard,
+} = infoSlice.actions;
 export default infoSlice.reducer;

@@ -26,7 +26,11 @@ const Tabs = ({ children }) => {
           <button
             key={child.props.label}
             className={`
-    ${activeTab === child.props.label ? "underline underline-offset-4 border-red-800 text-red-800" : "text-black"}
+    ${
+      activeTab === child.props.label
+        ? "underline underline-offset-4 border-red-800 text-red-800"
+        : "text-black"
+    }
     ${child.props.label === "My Flashcard" ? "leftspace" : ""}
     text-gray-700 font-medium py-2 sizes
   `}
@@ -55,4 +59,3 @@ const Tab = ({ label, children }) => {
   );
 };
 export { Tab, Tabs };
-

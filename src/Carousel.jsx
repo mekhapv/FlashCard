@@ -10,13 +10,13 @@ const Carousel = ({ termArr, currentIndex }) => {
 
   const prevSlide = () => {
     setInternalIndex((prevIndex) =>
-      prevIndex === 0 ? termArr.length - 1 : prevIndex - 1
+      prevIndex === 0 ? termArr.length - 1 : prevIndex - 1,
     );
   };
 
   const nextSlide = () => {
     setInternalIndex((prevIndex) =>
-      prevIndex === termArr.length - 1 ? 0 : prevIndex + 1
+      prevIndex === termArr.length - 1 ? 0 : prevIndex + 1,
     );
   };
 

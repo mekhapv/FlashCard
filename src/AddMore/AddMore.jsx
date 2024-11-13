@@ -11,6 +11,7 @@ export function AddMore({
   onDelete,
   onEdit,
   arr,
+  setValues,
   errors,
 }) {
   const fileInputRef = useRef(null);
@@ -90,7 +91,7 @@ export function AddMore({
             </p>
           )}
         </div>
-        <div className="termimage">
+        <div className="termimageBtn">
           <input
             type="file"
             id="termImage"
@@ -101,15 +102,15 @@ export function AddMore({
           />
           {values[`termImage${arr[index]}`] && (
             <img
-            className="term-image"
-             src={values[`termImage${arr[index]}`]}
+              className="term-image"
+              src={values[`termImage${arr[index]}`]}
               alt=""
             />
           )}
           {!values[`termImage${arr[index]}`] && (
             <button
               className="termimage-button bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                        onClick={handleButtonClick}
+              onClick={handleButtonClick}
             >
               Select Image
             </button>
