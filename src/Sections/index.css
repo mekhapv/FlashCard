@@ -1,0 +1,10 @@
+.group-image {
+  width: auto;
+  max-height: 65px;
+  margin-left: 30px;
+}
+
+.uploadimage-text {
+  display: flex;
+  align-items: center;
+}
