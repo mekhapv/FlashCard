@@ -1,6 +1,5 @@
-import "./App.css";
-import "./styles.css";
 import AllContent from "./AllContent";
+import "./styles.css";
 
 function App() {
   return <AllContent />;

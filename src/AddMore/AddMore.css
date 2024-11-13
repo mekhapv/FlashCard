@@ -1,0 +1,26 @@
+.termimage {
+  margin-left: 50px;
+  margin-top: 25px;
+}
+
+.description-username {
+  margin-left: 50px;
+}
+
+.term-image {
+  width: auto;
+  max-height: 65px;
+}
+
+.termimage-button {
+  margin-top: 5px;
+}
+
+.editdelete-buttons {
+  margin-top: 25px;
+  margin-left: 20px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

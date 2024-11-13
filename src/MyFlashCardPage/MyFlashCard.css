@@ -1,13 +1,27 @@
- .desctextcard {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 8; /* number of lines to show */
-                line-clamp: 9; 
-        -webkit-box-orient: vertical;
-            } 
+.desctextcard {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 8; /* number of lines to show */
+  line-clamp: 9;
+  -webkit-box-orient: vertical;
+}
 
-.show{
-right:40px;
-padding-top: 30px;
-float:inline-end
+.show {
+  right: 40px;
+  padding-top: 30px;
+  float: inline-end;
+}
+
+.carousel-image {
+  width: auto;
+  height: 225px;
+}
+
+.slidenumbers {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.slidenumber-section {
+  padding-top: 30px;
 }

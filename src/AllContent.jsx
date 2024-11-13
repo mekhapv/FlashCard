@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Header from "./Header/Header";
 import Home from "./Home/Home";
-import { useDispatch } from "react-redux";
 import { setGroupArr } from "./InfoSlice";
 
 export default function AllContent() {
@@ -12,7 +12,7 @@ export default function AllContent() {
     if (cards?.length) {
       dispatch(setGroupArr(cards));
     }
-  }, []);
+  });
   return (
     <>
       <Header />

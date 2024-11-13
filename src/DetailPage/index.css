@@ -1,0 +1,31 @@
+.carouselsection {
+  height: 250px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.sharebutton {
+  display: grid;
+  padding-top: 5px;
+}
+
+.downloadbutton,
+.printbutton {
+  background-color: white;
+  height: 40px;
+  display: flex;
+}
+
+.text {
+  margin-left: 10px;
+}
+
+.detailpage-name {
+  margin-left: 15px;
+}
+
+.detailpage-desc {
+  margin-left: 30px;
+}

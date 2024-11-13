@@ -1,13 +1,13 @@
+import { isEmpty } from "lodash";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isEmpty } from "lodash";
 import { setShowDetailsPage } from "../InfoSlice";
-import "./Tabs.css"
+import "./Tabs.css";
 const Tabs = ({ children }) => {
   const dispatch = useDispatch();
 
   const [activeTab, setActiveTab] = useState(children[0].props.label);
-  const { showDetailsPage, backClicked } = useSelector((state) => state.infoReducer);
+  const { showDetailsPage } = useSelector((state) => state.infoReducer);
   const handleClick = (e, newActiveTab) => {
     e.preventDefault();
     setActiveTab(newActiveTab);
@@ -54,4 +54,5 @@ const Tab = ({ label, children }) => {
     </div>
   );
 };
-export { Tabs, Tab };
+export { Tab, Tabs };
+

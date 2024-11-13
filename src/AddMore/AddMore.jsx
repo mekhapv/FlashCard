@@ -1,6 +1,7 @@
-import { TfiTrash } from "react-icons/tfi";
-import { TbEdit } from "react-icons/tb";
 import { useRef } from "react";
+import { TbEdit } from "react-icons/tb";
+import { TfiTrash } from "react-icons/tfi";
+import "./AddMore.css";
 
 export function AddMore({
   values,
@@ -63,7 +64,7 @@ export function AddMore({
           )}
         </div>
 
-        <div style={{ marginLeft: "50px" }}>
+        <div className="description-username">
           <label
             className="block text-gray-700 text-sm font-bold mb-2 "
             for="username"
@@ -89,7 +90,7 @@ export function AddMore({
             </p>
           )}
         </div>
-        <div style={{ marginLeft: "50px", marginTop: "25px" }}>
+        <div className="termimage">
           <input
             type="file"
             id="termImage"
@@ -100,31 +101,21 @@ export function AddMore({
           />
           {values[`termImage${arr[index]}`] && (
             <img
-              style={{ width: "auto", maxHeight: "65px" }}
-              src={values[`termImage${arr[index]}`]}
+            className="term-image"
+             src={values[`termImage${arr[index]}`]}
               alt=""
             />
           )}
           {!values[`termImage${arr[index]}`] && (
             <button
-              className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-              style={{ marginTop: "5px" }}
-              onClick={handleButtonClick}
+              className="termimage-button bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                        onClick={handleButtonClick}
             >
               Select Image
             </button>
           )}
         </div>
-        <div
-          style={{
-            marginTop: "25px",
-            marginLeft: "20px",
-            height: "65px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-          }}
-        >
+        <div className="editdelete-buttons">
           <div>
             <button type="button" onClick={() => onDelete(index)}>
               <TfiTrash />

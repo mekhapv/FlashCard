@@ -1,8 +1,8 @@
-import { useDispatch } from "react-redux";
-import { setShowDetailsPage, deleteCard } from "../InfoSlice";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { MdOutlineCancel } from "react-icons/md";
-import logo from "./pic.jpeg"
+import { useDispatch } from "react-redux";
+import { deleteCard, setShowDetailsPage } from "../InfoSlice";
+import logo from "./../assets/pic.jpeg";
 import "./Cards.css";
 
 
@@ -24,7 +24,7 @@ export default function Cards({ group, index }) {
       <div className="flex justify-center mt-4 float-left">
         <img
           src={group.image ? group.image : logo}
-          className="w-20 h-20 rounded-full object-cover" style={{ marginLeft: "10px" }}
+          className="cardimage w-20 h-20 rounded-full object-cover" 
           alt=""
         />
       </div>
@@ -33,18 +33,12 @@ export default function Cards({ group, index }) {
           <div className="font-bold text-xl mb-2 pl-2">{group.name}</div>
 
         </span>
-        <div className="text-gray-500"
-          style={{ marginLeft: "75px" }}
+        <div className="termlength text-gray-500"
         >{group.term.length} cards</div>
       </div>
 
       <div className="text-gray-700 mt-1 text-center px-4">
-        <p
-          className="desctext"
-          style={{
-            paddingTop: "40px",
-          }}
-        >
+        <p className="desctext">
           {group.desc}
         </p>
       </div>
@@ -57,7 +51,6 @@ export default function Cards({ group, index }) {
           </span>
         </button>
       </div>
-      <div className="px-6 pt-4 pb-2"></div>
     </div>
   </>
   );

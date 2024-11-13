@@ -1,13 +1,13 @@
-import { Tabs, Tab } from "../Components/Tabs";
-import { Formik, Form } from "formik";
-import MyFlashCards from "../MyFlashCardPage/MyFlashCard";
-import { useDispatch, useSelector } from "react-redux";
-import { setGroup } from "../InfoSlice";
-import { SubmitButton } from "../Submit/Submit";
-import DetailPage from "../DetailPage/DetailPage";
-import TermSection, { GroupSection } from "../Sections/Sections";
+import { Form, Formik } from "formik";
 import { isEmpty } from "lodash";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Tab, Tabs } from "../Components/Tabs";
+import DetailPage from "../DetailPage/DetailPage";
+import { setGroup } from "../InfoSlice";
+import MyFlashCards from "../MyFlashCardPage/MyFlashCard";
+import TermSection, { GroupSection } from "../Sections/Sections";
+import { SubmitButton } from "../Submit/Submit";
 
 export default function MainBox() {
   const dispatch = useDispatch();
@@ -88,8 +88,7 @@ export default function MainBox() {
                 setFieldValue,
                 handleBlur,
                 handleSubmit,
-                isSubmitting,
-                handleDelete,
+               
               }) => (
                 <Form onSubmit={handleSubmit}>
                   <GroupSection
