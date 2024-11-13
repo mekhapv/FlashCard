@@ -1,22 +1,29 @@
-import React from "react";
-import { VscArrowLeft } from "react-icons/vsc";
+import React, { useState } from "react";
 import { HiOutlinePrinter } from "react-icons/hi";
 import { IoDownloadOutline } from "react-icons/io5";
-import Carousel from "../Carousel";
+import { VscArrowLeft } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
-import SharePopUp from "../SharePopUp/SharePopUp";
+import Carousel from "../Carousel";
 import { hideDetailsPage } from "../InfoSlice";
+import SharePopUp from "../SharePopUp/SharePopUp";
 
 const DetailPage = () => {
+    const dispatch = useDispatch();
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+
   const { showDetailsPage, cardsToShow } = useSelector(
     (state) => state.infoReducer
   );
-  const dispatch = useDispatch();
+
 
   const handleBackClick = () => {
     dispatch(hideDetailsPage()); // dispatch the action creator
   };
 
+  const handleTermClick=(index)=>{
+     setCurrentIndex(index); 
+  }
   return (
     <>
       <div key={showDetailsPage.id}>
@@ -50,8 +57,16 @@ const DetailPage = () => {
               <hr className="h-px my-4  border-0 dark:bg-gray-700"></hr>
 
               <ul className="space-y-2">
-                {showDetailsPage.term?.map((t) => (
-                  <li key={t.id}>{t.name}</li>
+                {showDetailsPage.term?.map((t,index) => (
+                  <li key={t.id}>
+                     <button
+                      className="text-blue-500 hover:text-blue-700"
+                      onClick={() => handleTermClick(index)} // Update index on click
+                    >
+                    
+                    {t.name}
+                    </button>
+                    </li>
                 ))}
               </ul>
             </div>
@@ -67,7 +82,7 @@ const DetailPage = () => {
                 paddingBottom: "10px",
               }}
             >
-              <Carousel termArr={showDetailsPage.term} />
+              <Carousel termArr={showDetailsPage.term}  currentIndex={currentIndex} />
             </div>
             {/* share */}
 
