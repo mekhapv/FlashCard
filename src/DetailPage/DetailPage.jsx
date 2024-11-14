@@ -77,6 +77,7 @@ const DetailPage = () => {
               <Carousel
                 termArr={showDetailsPage.term}
                 currentIndex={currentIndex}
+                setCurrentIndex={setCurrentIndex}
               />
             </div>
             {/* share */}

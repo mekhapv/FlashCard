@@ -2,24 +2,25 @@ import React, { useEffect, useState } from "react";
 import "./MyFlashCardPage/MyFlashCard.css";
 import logo from "./assets/noimage.jpg";
 
-const Carousel = ({ termArr, currentIndex }) => {
+const Carousel = ({ termArr, currentIndex, setCurrentIndex }) => {
   const [internalIndex, setInternalIndex] = useState(currentIndex);
   useEffect(() => {
     setInternalIndex(currentIndex);
   }, [currentIndex]);
 
   const prevSlide = () => {
-    setInternalIndex((prevIndex) =>
-      prevIndex === 0 ? termArr.length - 1 : prevIndex - 1,
-    );
+    const newIndex =
+      internalIndex === 0 ? termArr.length - 1 : internalIndex - 1;
+    setInternalIndex(newIndex);
+    setCurrentIndex(newIndex); // Update parent state
   };
 
   const nextSlide = () => {
-    setInternalIndex((prevIndex) =>
-      prevIndex === termArr.length - 1 ? 0 : prevIndex + 1,
-    );
+    const newIndex =
+      internalIndex === termArr.length - 1 ? 0 : internalIndex + 1;
+    setInternalIndex(newIndex);
+    setCurrentIndex(newIndex); // Update parent state
   };
-
   return (
     <div className="relative w-full max-w-2xl mx-auto overflow-hidden">
       <div

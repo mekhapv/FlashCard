@@ -5,7 +5,7 @@ import { AddMore } from "../AddMore/AddMore";
 
 export default function TermSection({
   values,
-  handleChange,
+  handleChange: formikChange,
   handleBlur,
   setFieldValue,
   setValues,
@@ -19,13 +19,25 @@ export default function TermSection({
       setAddMore([0]);
     }
   }, [values]);
-
+  const handleChange = (e) => {
+    console.log(values);
+    console.log(addMore);
+    formikChange(e);
+  };
   const handleDelete = (indexToDelete) => {
     const updatedArr = [...addMore];
-    updatedArr.splice(indexToDelete, 1);
     delete values[`termDesc${indexToDelete}`];
     delete values[`termName${indexToDelete}`];
     delete values[`termImage${indexToDelete}`];
+    for (let i = indexToDelete; i < updatedArr.length; i++) {
+      values[`termDesc${i}`] = values[`termDesc${i + 1}`];
+      delete values[`termDesc${i + 1}`];
+      values[`termName${i}`] = values[`termName${i + 1}`];
+      delete values[`termName${i + 1}`];
+      values[`termImage${i}`] = values[`termImage${i + 1}`];
+      delete values[`termImage${i + 1}`];
+    }
+    updatedArr.pop();
     setAddMore(updatedArr);
   };
 
@@ -45,7 +57,7 @@ export default function TermSection({
             handleBlur={handleBlur}
             index={i}
             arr={addMore} //arr
-            onDelete={handleDelete}
+            onDelete={() => handleDelete(i)}
             onEdit={onEdit}
             errors={errors}
           />
