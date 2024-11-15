@@ -38,6 +38,10 @@ export default function TermSection({
       delete values[`termImage${i + 1}`];
     }
     updatedArr.pop();
+    // updatedArr never becomes empty
+    if (updatedArr.length === 0) {
+      updatedArr.push(0); // Ensure at least one item exists in the array
+    }
     setAddMore(updatedArr);
   };
 
